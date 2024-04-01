@@ -52,7 +52,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">LifelongMemory: Leveraging LLMs for Answering Queries in Egocentric Videos</h1>
+            <h1 class="title is-1 publication-title">LifelongMemory: Leveraging LLMs for Answering Queries in Long-form Egocentric Videos</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -96,12 +96,12 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="" target="_blank"
+                    <a href="https://github.com/Agentic-Learning-AI-Lab/lifelong-memory" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code will be released shortly!</span>
+                    <span>Code</span>
                   </a>
                   </span>
 
@@ -131,7 +131,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            The egocentric video natural language query (NLQ) task involves localizing a temporal window in an egocentric video that provides an answer to a posed query, which has wide applications in building personalized AI assistants. Prior methods for this task have focused on improvements of network architecture and leveraging pre-training for enhanced image and video features, but have struggled with capturing long-range temporal dependencies in lengthy videos, and cumbersome end-to-end training. Motivated by recent advancements in Large Language Models (LLMs) and vision language models, we introduce LifelongMemory, a novel framework that utilizes multiple pre-trained models to answer queries from extensive egocentric video content. We address the unique challenge by employing a pre-trained captioning model to create detailed narratives of the videos. These narratives are then used to prompt a frozen LLM to generate coarse-grained temporal window predictions, which are subsequently refined using a pre-trained NLQ model. Empirical results demonstrate that our method achieves competitive performance against existing supervised end-to-end learning methods, underlining the potential of integrating multiple pre-trained multi- modal large language models in complex vision-language tasks. We provide a comprehensive analysis of key design decisions and hyperparameters in our pipeline, offering insights and practical guidelines. 
+            In this paper we introduce LifelongMemory, a new framework for accessing long-form egocentric videographic memory through natural language question answering and retrieval. LifelongMemory generates concise video activity descriptions of the camera wearer and leverages the zero-shot capabilities of pretrained large language models to perform reasoning over long-form video context. Furthermore, LifelongMemory uses a confidence and explanation module to produce confident, high-quality, and interpretable answers. Our approach achieves state-of-the-art performance on the EgoSchema benchmark for question answering and is highly competitive on the natural language query (NLQ) challenge of Ego4D.
           </p>
         </div>
       </div>
@@ -157,7 +157,7 @@
     <h2 class="title is-5">Stage 1: Video Captioning</h2>
     <h2> A multi-modal LLM (MLLM) produces captions from a list of short video clips.  Content and query similarity filters are then applied to remove redundant and irrelevant captions.  </h2>
     <div class="hero-body">
-      <video poster="" id="video1" autoplay controls muted height="50%">
+      <center><video poster="" id="video1" autoplay controls muted width="700" height="50%">
         <source src="static/videos/stageone.mp4"
         type="video/mp4">
       </video>
@@ -172,7 +172,7 @@
     <h2 class="title is-5">Stage 2: LLM Reasoning </h2>
     <h2> An LLM is instructed to take inputs from the list of condensed captions and retrieve the most relevant interval candidates. </h2>
     <div class="hero-body">
-      <img src="static/images/stagetwo.png" alt="MY ALT TEXT"/>
+      <center><img src="static/images/stagetwo.png" width="700" alt="MY ALT TEXT"/>
     </div>
   </div>
 </section>
@@ -182,9 +182,13 @@
 <section class="hero is-small">
   <div class="container is-max-desktop">
     <h2 class="title is-5">Stage 3: Output Refinement</h2>
-    <h2> Feed candidate intervals predicted by our previous stage into a pretrained NLQ model to obtain a finegrained prediction. </h2>
+    <h2> For video QA, ensemble the predictions of multiple runs using vote by confidence. </h2>
     <div class="hero-body">
-      <video poster="" id="video1" autoplay controls muted height="50%">
+      <center><img src="static/images/votebyconfidence.png" width="700" alt="MY ALT TEXT"/>
+    </div>
+    <h2> For NLQ, feed candidate intervals predicted by our previous stage into a pretrained NLQ model to obtain a finegrained prediction. </h2>
+    <div class="hero-body">
+      <center><video poster="" id="video1" autoplay controls muted width="700" height="50%">
         <!-- Your video file here -->
         <source src="static/videos/stagethree.mp4"
         type="video/mp4">
@@ -202,7 +206,7 @@
       <h2> We visualize the raw predictions of the LLM below. The LLM generates high-quality results without any post-processing. </h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted>
+          <center><video poster="" id="video1" autoplay controls muted width="600">
             <!-- Your video file here -->
             <source src="static/videos/open_fridge.mp4"
             type="video/mp4">
@@ -213,7 +217,7 @@
           </h2>
         </div>
         <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted height="100%">
+          <center><video poster="" id="video1" autoplay controls muted width="600">
             <!-- Your video file here -->
             <source src="static/videos/bucket.mp4"
             type="video/mp4">
@@ -224,7 +228,7 @@
           </h2>
         </div>
         <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted height="100%">
+          <center><video poster="" id="video1" autoplay controls muted width="600">
             <!-- Your video file here -->
             <source src="static/videos/fridge.mp4"
             type="video/mp4">
@@ -235,7 +239,7 @@
           </h2>
         </div>
         <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted height="100%">
+          <center><video poster="" id="video2" autoplay controls muted width="600">
             <!-- Your video file here -->
             <source src="static/videos/fueltank.mp4"
             type="video/mp4">
@@ -246,7 +250,7 @@
           </h2>
         </div>
         <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted height="100%">\
+          <center><video poster="" id="video3" autoplay controls muted width="600">\
             <!-- Your video file here -->
             <source src="static/videos/keg.mp4"
             type="video/mp4">
@@ -257,7 +261,7 @@
           </h2>
         </div>
         <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted height="100%">\
+          <center><video poster="" id="video3" autoplay controls muted width="600">\
             <!-- Your video file here -->
             <source src="static/videos/drink.mp4"
             type="video/mp4">
@@ -268,7 +272,7 @@
           </h2>
         </div>
         <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted height="100%">\
+          <center><video poster="" id="video3" autoplay controls muted width="600">\
             <!-- Your video file here -->
             <source src="static/videos/wood.mp4"
             type="video/mp4">
@@ -279,7 +283,7 @@
           </h2>
         </div>
         <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted height="100%">\
+          <center><video poster="" id="video3" autoplay controls muted width="600">\
             <!-- Your video file here -->
             <source src="static/videos/egg.mp4"
             type="video/mp4">
@@ -299,9 +303,12 @@
 <section class="hero is-small">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Quantitative Evaluation</h2>
-    <h2> We compare the performance of our method and two competitive methods on the Ego4D NLQ benchmark. We use LaViLa as the captioning model, GPT4 as the reasoning core in the experiment and NAQ++ as the NLQ model used in the refinement stage. While our method is not as good as the current state-of-the-art, it outperforms NaQ++ on the official test set (hosted on EvalAI), suggesting a more powerful NLQ model can further boost the performance. We also illustrate the potential of method with better captioning model by evaluating the performance on the validation set with the ground-truth captions from Ego4D. </h2>
+    <h2> Our approach achieves state-of-the-art performance on the EgoSchema benchmark for question answering and is highly competitive on the natural language query (NLQ) challenge of Ego4D. </h2>
     <div class="hero-body">
-      <img src="static/images/nlq_results.png" width="500" alt="MY ALT TEXT" />
+      <center><img src="static/images/qa_results.png" width="600" alt="MY ALT TEXT" />
+    </div>
+    <div class="hero-body">
+      <center><img src="static/images/nlq_results.png" width="600" alt="MY ALT TEXT" />
     </div>
     <h2> We also quantitatively evaluate our proposed framework with different captioning models, LLMs, pre-processing techniques, prompts. Please read our paper for more details.<br> <br>  </h2>
   </div>
@@ -358,14 +365,14 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@misc{wang2023lifelongmemory,
-              title={LifelongMemory: Leveraging LLMs for Answering Queries in Egocentric Videos}, 
-              author={Ying Wang and Yanlai Yang and Mengye Ren},
-              year={2023},
-              eprint={2312.05269},
-              archivePrefix={arXiv},
-              primaryClass={cs.CV}
-        }
+      <pre><code>@misc{wang2024lifelongmemory,
+      title={LifelongMemory: Leveraging LLMs for Answering Queries in Long-form Egocentric Videos}, 
+      author={Ying Wang and Yanlai Yang and Mengye Ren},
+      year={2024},
+      eprint={2312.05269},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 </code></pre>
     </div>
 </section>
